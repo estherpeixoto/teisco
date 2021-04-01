@@ -1,0 +1,25 @@
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-item {
+	font-weight: bold;
+	color: #F6F6F6;
+	letter-spacing: 0.19em;
+	padding-right: 0;
+    padding-left: 0;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    transition: all .15s ease;
+}
+
+.navbar-item:hover {
+	color: #FFFFFF;
+}
+
+@media screen and (min-width: 768px) {
+	#feat {
+		background: url('../img/desktop_slide.jpg') no-repeat;
+	}
+}
