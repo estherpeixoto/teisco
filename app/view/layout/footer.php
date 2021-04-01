@@ -135,17 +135,7 @@
         	</svg>
 		</div>
 
-        <script src='<?php echo SITE_URL; ?>assets/js/jquery-3.2.1.min.js'></script>
-        <script src='<?php echo SITE_URL; ?>assets/js/popper.min.js'></script>
-        <script src='<?php echo SITE_URL; ?>assets/js/bootstrap.min.js'></script>
-        <script src='<?php echo SITE_URL; ?>assets/js/owl.carousel.min.js'></script>
-        <script src='<?php echo SITE_URL; ?>assets/js/jquery.waypoints.min.js'></script>
-        <script src='<?php echo SITE_URL; ?>assets/js/aos.js'></script>
-
-        <script src='<?php echo SITE_URL; ?>assets/js/jquery.magnific-popup.min.js'></script>
-        <script src='<?php echo SITE_URL; ?>assets/js/magnific-popup-options.js'></script>
-        <script src='<?php echo SITE_URL; ?>assets/js/main.js'></script>
-
+        <script src='<?php echo SITE_URL; ?>assets/js/bootstrap.bundle.min.js'></script>
 	</body>
 
 </html>

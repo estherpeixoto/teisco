@@ -1,65 +1,58 @@
 <!DOCTYPE html>
 <html lang='pt-br'>
     <head>
-        <title>Foody</title>
+        <title>Teisco - A Universe of Fearless Music Explorers</title>
         <meta charset='utf-8'>
-		<meta name="description" content="Join us at one of Brazil's most celebrated restaurants, Foody. With a menu inspired by Peter Gilmore, welcome to a dining experience like no other.">
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-		<meta property="og:locale" content="en_US">
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="Quay Restaurant Sydney">
-		<meta property="og:description" content="Join us at one of Australia's most celebrated restaurants, Quay. With a menu inspired by Peter Gilmore, welcome to a dining experience like no other.">
-		<meta property="og:url" content="https://www.quay.com.au/">
-		<meta property="og:site_name" content="Quay Restaurant Sydney">
-
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800' rel='stylesheet'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/bootstrap.css'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/animate.css'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/owl.carousel.min.css'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/aos.css'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/magnific-popup.css'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/fonts/ionicons/css/ionicons.min.css'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/fonts/fontawesome/css/font-awesome.min.css'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/fonts/flaticon/font/flaticon.css'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/style.css'>
+        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/bootstrap.min.css'>
     </head>
 
     <body>
         <header role='banner'>
-            <nav class='navbar navbar-expand-md navbar-dark bg-dark'>
+            <nav class='navbar navbar-expand-md navbar-dark bg-fuzz'>
                 <div class='container'>
-                    <a class='navbar-brand' href='<?php echo SITE_URL; ?>'>Foody</a>
+					<a class="navbar-brand" href="<?php echo SITE_URL; ?>">
+						<img src="<?php echo SITE_URL; ?>/assets/img/logo.svg"
+							alt="Teisco - A Universe of Fearless Music Explorers"
+							width="auto" height="20"
+						/>
+					</a>
 
-					<button class='navbar-toggler' type='button' data-toggle='collapse'
-						data-target='#navbar' aria-controls='navbar'
-						aria-expanded='false' aria-label='Toggle navigation'
+					<button class="navbar-toggler" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation"
 					>
-                        <span class='navbar-toggler-icon'></span>
-                    </button>
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-                    <div class='collapse navbar-collapse' id='navbar'>
-                        <ul class='navbar-nav ml-auto pl-lg-5 pl-0'>
-                            <li class='nav-item'>
-                                <a class='nav-link' href='<?php echo SITE_URL; ?>'>Home</a>
-                            </li>
-
+					<div class="collapse navbar-collapse text-uppercase" id="navbarSupportedContent">
+                        <ul class='navbar-nav mx-auto pl-lg-5 pl-0'>
 							<li class='nav-item'>
-								<a class='nav-link' href='<?php echo SITE_URL; ?>Home/menu'>Menu</a>
+								<a class='nav-link' href='<?php echo SITE_URL; ?>Home/menu'>
+									Products
+								</a>
 							</li>
 
                             <li class='nav-item'>
-                                <a class='nav-link' href='<?php echo SITE_URL; ?>Home/about'>About</a>
+                                <a class='nav-link' href='<?php echo SITE_URL; ?>Home/about'>
+									Accessories
+								</a>
                             </li>
 
                             <li class='nav-item'>
-                                <a class='nav-link' href='<?php echo SITE_URL; ?>Home/team'>Meet the Team</a>
+                                <a class='nav-link' href='<?php echo SITE_URL; ?>Home/team'>
+									About
+								</a>
                             </li>
                         </ul>
 
                         <ul class='navbar-nav ml-auto'>
-                            <li class='nav-item cta-btn'>
-                                <a class='nav-link' href='<?php echo SITE_URL; ?>Home/reservation'>Make a reservation</a>
-                            </li>
+							<li class='nav-item'>
+								<a class='nav-link text-decoration-underline' href='<?php echo SITE_URL; ?>Home/team'>
+									Sign in
+								</a>
+							</li>
                         </ul>
 
                     </div>
