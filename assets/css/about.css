@@ -1,15 +1,16 @@
 .hero-title {
-	font-weight: 900;
-	text-transform: uppercase;
 	line-height: 163.69%;
 }
 
 .hero-image {
-	height: 92vh;
-	max-height: 752px;
+	max-width: 250px;
 }
 
 @media screen and (min-width: 768px) {
+	.hero-image {
+		max-width: 400px;
+	}
+
 	.about {
 		min-height: 80vh;
 		flex-wrap: wrap;

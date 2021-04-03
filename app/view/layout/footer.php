@@ -7,9 +7,9 @@
         				<h5 class='text-uppercase'>About us</h5>
 
         				<p>
-							Born to empower musicians, push the boundaries and disrupt the status quo.
-							Sound-altering products for the restless, the noisy and those who don’t ask for permission.
-						</p>
+        					Born to empower musicians, push the boundaries and disrupt the status quo.
+        					Sound-altering products for the restless, the noisy and those who don’t ask for permission.
+        				</p>
         			</div>
 
         			<div class='col-md-4'>
@@ -33,33 +33,21 @@
         				</ul>
         			</div>
 
-					<div class='col-4 col-md-2 col-xl-1 align-self-center mt-5 mt-md-0'>
-						<ul class='list-unstyled row mb-0 g-2'>
-        					<li class='col-6'>
-        						<a href='https://twitter.com' class='text-white p-2'>
-        							<span class='fab fa-twitter fa-2x'></span>
-        						</a>
-        					</li>
-
-        					<li class='col-6'>
-        						<a href='https://facebook.com' class='text-white p-2'>
+        			<div class='col-4 col-md-2 col-xl-1 align-self-center mt-5 mt-md-0'>
+        				<ul class='list-unstyled d-flex mb-0 gx-2'>
+        					<li>
+        						<a href='https://facebook.com/WeAreTeisco' class='text-white p-2'>
         							<span class='fab fa-facebook fa-2x'></span>
         						</a>
         					</li>
 
-        					<li class='col-6'>
-        						<a href='https://linkedin.com' class='text-white p-2'>
-        							<span class='fab fa-linkedin fa-2x'></span>
-        						</a>
-        					</li>
-
-        					<li class='col-6'>
-        						<a href='https://instagram.com' class='text-white p-2'>
+        					<li>
+        						<a href='https://instagram.com/weareteisco' class='text-white p-2'>
         							<span class='fab fa-instagram fa-2x'></span>
         						</a>
         					</li>
         				</ul>
-					</div>
+        			</div>
 
         		</div>
 
@@ -78,6 +66,6 @@
         </footer>
 
         <script src='<?php echo SITE_URL; ?>assets/js/bootstrap.bundle.min.js'></script>
-	</body>
+        </body>
 
-</html>
+        </html>

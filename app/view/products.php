@@ -8,8 +8,7 @@
 
 		<div class='col-6 col-md-4'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png'
-					class='card-img-top'
+				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png' class='card-img-top'
 					alt='Teisco Overdrive'
 				/>
 
@@ -22,8 +21,7 @@
 
 		<div class='col-6 col-md-4'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/boost1.png'
-					class='card-img-top'
+				<img src='<?php echo SITE_URL; ?>assets/img/products/boost1.png' class='card-img-top'
 					alt='Teisco Boost'
 				/>
 
@@ -36,8 +34,7 @@
 
 		<div class='col-6 col-md-4'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/fuzz1.png'
-					class='card-img-top'
+				<img src='<?php echo SITE_URL; ?>assets/img/products/fuzz1.png' class='card-img-top' 7
 					alt='Teisco Fuzz'
 				/>
 
@@ -50,8 +47,7 @@
 
 		<div class='col-6 col-md-4'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/delay1.png'
-					class='card-img-top'
+				<img src='<?php echo SITE_URL; ?>assets/img/products/delay1.png' class='card-img-top'
 					alt='Teisco Delay'
 				/>
 
@@ -64,8 +60,7 @@
 
 		<div class='col-6 col-md-4'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/distortion1.png'
-					class='card-img-top'
+				<img src='<?php echo SITE_URL; ?>assets/img/products/distortion1.png' class='card-img-top'
 					alt='Teisco Distortion'
 				/>
 
@@ -85,8 +80,7 @@
 	<div class='row justify-content-center'>
 		<div class='col-6 col-md-4'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/interface1.png'
-					class='card-img-top'
+				<img src='<?php echo SITE_URL; ?>assets/img/products/interface1.png' class='card-img-top'
 					alt='Teisco Interface Pedal'
 				/>
 

@@ -5,17 +5,17 @@
 
 .navbar-item {
 	font-weight: bold;
-	color: #f6f6f6;
+	color: #cdcdcd;
 	letter-spacing: 0.19em;
 	padding-right: 0;
 	padding-left: 0;
 	padding: 0.5rem 1rem;
 	text-decoration: none;
-	transition: all 0.15s ease;
+	transition: all 0.1s ease;
 }
 
 .navbar-item:hover {
-	color: #ffffff;
+	color: var(--bs-white);
 }
 
 .navbar-toggler {
@@ -26,6 +26,13 @@
 .navbar-toggler:focus {
 	outline: none !important;
 	box-shadow: none;
-	color: #FFFFFF;
-	color: #FFFFFF;
+	color: var(--bs-white);
+}
+
+a.cart-button {
+	transition: all 0.1s ease;
+}
+
+a.cart-button:hover {
+	border-color: var(--bs-boost) !important;
 }

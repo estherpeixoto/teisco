@@ -5,6 +5,7 @@
 	<title>Teisco - A Universe of Fearless Music Explorers</title>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+	<link rel="icon" type="image/svg+xml" href="<?php echo SITE_URL; ?>assets/img/favicon.svg">
 	<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/bootstrap.min.css'>
 	<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/font/fontawesome/css/all.min.css'>
 	<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/header.css'>
@@ -14,9 +15,7 @@
 	<header>
 		<nav class='navbar navbar-expand-md navbar-dark bg-fuzz'>
 			<div class='container'>
-				<a href='<?php echo SITE_URL; ?>'
-					class='navbar-brand order-2 order-md-0'
-				>
+				<a href='<?php echo SITE_URL; ?>' class='navbar-brand order-2 order-md-0'>
 					<img src='<?php echo SITE_URL; ?>/assets/img/logo.svg'
 						alt='Teisco - A Universe of Fearless Music Explorers'
 						width='auto'
@@ -24,10 +23,7 @@
 					/>
 				</a>
 
-				<button
-					type='button'
-					class='navbar-toggler order-1'
-					data-bs-toggle='collapse'
+				<button type='button' class='navbar-toggler order-1' data-bs-toggle='collapse'
 					data-bs-target='#navbarSupportedContent'
 					aria-controls='navbarSupportedContent'
 					aria-expanded='false'
@@ -38,19 +34,14 @@
 
 				<a href="#cart"
 					role="button"
-					class='order-3 order-md-4 outline-none bg-transparent border-0'
-					data-bs-toggle="offcanvas"
 					aria-controls="cart"
+					data-bs-toggle="offcanvas"
+					class='cart-button order-3 order-md-4 py-1 px-3 outline-none bg-transparent rounded-pill border border-delay'
 				>
-					<i data-bs-target='#cart'
-						class='fas fa-shopping-cart fa-lg text-boost me-2'
-					>
-					</i>
+					<i data-bs-target='#cart' class='fas fa-shopping-cart text-boost'></i>
 				</a>
 
-				<div id='navbarSupportedContent'
-					class='collapse navbar-collapse text-uppercase order-4 order-md-3'
-				>
+				<div id='navbarSupportedContent' class='collapse navbar-collapse text-uppercase order-4 order-md-3'>
 					<ul class='navbar-nav mx-auto py-3 py-md-0 pl-lg-5 pl-0'>
 						<li class='nav-item py-3 py-md-0'>
 							<a class='navbar-item' href='<?php echo SITE_URL; ?>Home/products'>
@@ -65,9 +56,7 @@
 						</li>
 
 						<li class='nav-item py-3 py-md-0'>
-							<a class='navbar-item text-decoration-underline'
-								href='<?php echo SITE_URL; ?>Home/signin'
-							>
+							<a class='navbar-item text-decoration-underline' href='<?php echo SITE_URL; ?>Home/signin'>
 								Sign in
 							</a>
 						</li>
@@ -76,23 +65,13 @@
 			</div>
 		</nav>
 
-		<div class="offcanvas offcanvas-end"
-			tabindex="-1"
-			id="cart"
-			aria-labelledby="cartLabel"
-		>
+		<div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="cartLabel">
 			<div class="offcanvas-header">
-				<h5 id="cartLabel"
-					class="offcanvas-title text-uppercase text-fuzz"
-				>
+				<h5 id="cartLabel" class="offcanvas-title text-uppercase text-fuzz">
 					Shopping Cart
 				</h5>
 
-				<button type="button"
-					class="btn-close text-reset"
-					data-bs-dismiss="offcanvas"
-					aria-label="Close"
-				>
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
 				</button>
 			</div>
 

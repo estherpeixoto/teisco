@@ -7,37 +7,9 @@
 	<div class='row gy-3 justify-content-center'>
 
 		<div class='col-12 col-md-6'>
-			<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png'
-				class='img-fluid'
+			<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png' class='img-fluid'
 				alt='Teisco Overdrive'
 			/>
-
-			<!-- <div class='d-flex justify-content-center'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png'
-					class='col'
-					alt='...'
-				/>
-
-				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png'
-					class='col'
-					alt='...'
-				/>
-
-				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png'
-					class='col'
-					alt='...'
-				/>
-
-				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png'
-					class='col'
-					alt='...'
-				/>
-
-				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png'
-					class='col'
-					alt='...'
-				/>
-			</div> -->
 		</div>
 
 		<div class='col-md-6 col-lg-5 col-xl-4 align-self-md-center'>

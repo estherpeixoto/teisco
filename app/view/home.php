@@ -8,14 +8,14 @@
 
 	<section class='d-flex flex-column justify-content-center'>
 		<div class='container'>
-			<div class='row justify-content-center text-center align-items-center'>
+			<div class='row justify-content-center text-center'>
 				<div class='d-none d-md-block col-xl-8 col-lg-9 col-md-10'>
 					<h1 class='display-3'>
 						<img class='img-fluid' src='<?php echo SITE_URL; ?>assets/img/logo2.svg' alt='Teisco' />
 					</h1>
 
 					<div class='my-5'>
-						<p class='text-uppercase font-bold h4'>A universe of fearless music explorers</p>
+						<h4 class='text-uppercase fw-bold'>A universe of fearless music explorers</h4>
 					</div>
 				</div>
 			</div>
@@ -23,14 +23,19 @@
 	</section>
 </div>
 
-<section>
-	<div class='hero position-relative d-flex flex-column flex-md-row justify-content-between bg-delay text-fuzz'>
-		<div class='outer-space p-5'>
-			<h1>PEDALS<br>FROM</h1>
-			<h1>OUTER<br>SPACE</h1>
-		</div>
+<section class='d-flex flex-column flex-md-row align-items-center justify-content-end mx-md-0 p-0 bg-delay'>
+	<div class='py-5 px-md-5 text-center text-md-start text-fuzz m-0 col-md-6'>
+		<h1 class='outer-space fw-bold text-uppercase m-md-5 ps-md-5'>
+			Pedals
+			<br>
+			from
+			<br>
+			<i class='fw-bolder'>outer<br>space</i>
+		</h1>
+	</div>
 
-		<img src='<?php echo SITE_URL; ?>assets/img/hero_pedal.png' class='img-fluid' alt='Pedals from outer space' />
+	<div class='col-md-6 m-0'>
+		<img class='w-100 img-fluid' alt='hero' src='<?php echo SITE_URL; ?>assets/img/hero_pedals.jpg'>
 	</div>
 </section>
 
@@ -40,8 +45,8 @@
 	<div class='d-flex flex-column flex-md-row justify-content-center gy-3'>
 		<div class='col-12 col-md-3'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/interface1.png'
-					class='card-img-top' alt='Teisco Interface'
+				<img src='<?php echo SITE_URL; ?>assets/img/products/interface1.png' class='card-img-top'
+					alt='Teisco Interface'
 				/>
 
 				<div class='card-body'>
@@ -53,8 +58,8 @@
 
 		<div class='col-12 col-md-3'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png'
-					class='card-img-top' alt='Teisco Overdrive'
+				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png' class='card-img-top'
+					alt='Teisco Overdrive'
 				/>
 
 				<div class='card-body'>

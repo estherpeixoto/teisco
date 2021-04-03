@@ -24,7 +24,9 @@
 					</div>
 
 					<div class="form-floating mb-3">
-						<textarea class="form-control" style="height: 150px" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+						<textarea class="form-control" style="height: 150px" placeholder="Leave a comment here"
+							id="floatingTextarea"
+						></textarea>
 						<label for="floatingTextarea">Message</label>
 					</div>
 
