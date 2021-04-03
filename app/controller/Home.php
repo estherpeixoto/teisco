@@ -14,18 +14,27 @@ class Home extends Controller
 		$this->view('about');
 	}
 
-	public function menu()
+	public function products()
 	{
-		$this->view('menu');
+		if ($this->data['id'] != 0)
+		{
+			$this->view('product', [
+				'id' => $this->data['id']
+			]);
+		}
+		else
+		{
+			$this->view('products');
+		}
 	}
 
-	public function team()
+	public function signin()
 	{
-		$this->view('team');
+		$this->view('signin');
 	}
 
-	public function reservation()
+	public function contact()
 	{
-		$this->view('reservation');
+		$this->view('contact');
 	}
 }

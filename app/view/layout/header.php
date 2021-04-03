@@ -1,80 +1,104 @@
 <!DOCTYPE html>
 <html lang='pt-br'>
-    <head>
-        <title>Teisco - A Universe of Fearless Music Explorers</title>
-        <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-        <link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/bootstrap.min.css'>
-  		<link rel="stylesheet" href="<?php echo SITE_URL; ?>assets/font/fontawesome/css/all.min.css">
-    </head>
 
-    <body>
-        <header role='banner'>
-            <nav class='navbar navbar-expand-md navbar-dark bg-fuzz'>
-                <div class='container'>
-					<a class="navbar-brand order-2 order-md-0" href="<?php echo SITE_URL; ?>">
-						<img src="<?php echo SITE_URL; ?>/assets/img/logo.svg"
-							alt="Teisco - A Universe of Fearless Music Explorers"
-							width="auto" height="20"
-						/>
-					</a>
+<head>
+	<title>Teisco - A Universe of Fearless Music Explorers</title>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+	<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/font/fontawesome/css/all.min.css'>
+	<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/header.css'>
+</head>
 
-					<button class="navbar-toggler order-1" type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-						aria-expanded="false" aria-label="Toggle navigation"
+<body>
+	<header>
+		<nav class='navbar navbar-expand-md navbar-dark bg-fuzz'>
+			<div class='container'>
+				<a href='<?php echo SITE_URL; ?>'
+					class='navbar-brand order-2 order-md-0'
+				>
+					<img src='<?php echo SITE_URL; ?>/assets/img/logo.svg'
+						alt='Teisco - A Universe of Fearless Music Explorers'
+						width='auto'
+						height='20'
+					/>
+				</a>
+
+				<button
+					type='button'
+					class='navbar-toggler order-1'
+					data-bs-toggle='collapse'
+					data-bs-target='#navbarSupportedContent'
+					aria-controls='navbarSupportedContent'
+					aria-expanded='false'
+					aria-label='Toggle navigation'
+				>
+					<span class='navbar-toggler-icon'></span>
+				</button>
+
+				<a href="#cart"
+					role="button"
+					class='order-3 order-md-4 outline-none bg-transparent border-0'
+					data-bs-toggle="offcanvas"
+					aria-controls="cart"
+				>
+					<i data-bs-target='#cart'
+						class='fas fa-shopping-cart fa-lg text-boost me-2'
 					>
-						<span class="navbar-toggler-icon"></span>
-					</button>
+					</i>
+				</a>
 
-					<button class="btn btn-sm btn-outline-boost order-3 order-md-4" type="button">
-						<i class="fas fa-shopping-cart"></i>
-					</button>
+				<div id='navbarSupportedContent'
+					class='collapse navbar-collapse text-uppercase order-4 order-md-3'
+				>
+					<ul class='navbar-nav mx-auto py-3 py-md-0 pl-lg-5 pl-0'>
+						<li class='nav-item py-3 py-md-0'>
+							<a class='navbar-item' href='<?php echo SITE_URL; ?>Home/products'>
+								Products
+							</a>
+						</li>
 
-					<div class="collapse navbar-collapse text-uppercase order-4 order-md-3" id="navbarSupportedContent">
-                        <ul class='navbar-nav mx-auto pl-lg-5 pl-0'>
-							<li class='nav-item'>
-								<a class='navbar-item'	href='<?php echo SITE_URL; ?>Home/products'>
-									Products
-								</a>
-							</li>
+						<li class='nav-item py-3 py-md-0'>
+							<a class='navbar-item' href='<?php echo SITE_URL; ?>Home/about'>
+								About
+							</a>
+						</li>
 
-                            <li class='nav-item'>
-                                <a class='navbar-item'	href='<?php echo SITE_URL; ?>Home/accessories'>
-									Accessories
-								</a>
-                            </li>
-
-                            <li class='nav-item'>
-                                <a class='navbar-item'	href='<?php echo SITE_URL; ?>Home/about'>
-									About
-								</a>
-                            </li>
-                        </ul>
-
-                        <!-- <ul class='navbar-nav text-decoration-underline ml-auto'>
-							<li class='nav-item'>
-								<a class='navbar-item'	href='<?php echo SITE_URL; ?>Home/signin'>
-									Sign in
-								</a>
-							</li>
-
-							<li class='nav-item'>
-								<a class='navbar-item'	href='<?php echo SITE_URL; ?>Home/createaccount'>
-									Create account
-								</a>
-							</li>
-                        </ul> -->
-
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-		<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img id='feat' src="<?php echo SITE_URL; ?>/assets/img/mobile_slide.jpg" class="d-block w-100" alt="...">
+						<li class='nav-item py-3 py-md-0'>
+							<a class='navbar-item text-decoration-underline'
+								href='<?php echo SITE_URL; ?>Home/signin'
+							>
+								Sign in
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
+		</nav>
+
+		<div class="offcanvas offcanvas-end"
+			tabindex="-1"
+			id="cart"
+			aria-labelledby="cartLabel"
+		>
+			<div class="offcanvas-header">
+				<h5 id="cartLabel"
+					class="offcanvas-title text-uppercase text-fuzz"
+				>
+					Shopping Cart
+				</h5>
+
+				<button type="button"
+					class="btn-close text-reset"
+					data-bs-dismiss="offcanvas"
+					aria-label="Close"
+				>
+				</button>
+			</div>
+
+			<div class="offcanvas-body">
+				<p>Your cart is currently empty.</p>
+				<p>Continue browsing <a href='<?php echo SITE_URL; ?>Home/products'>here</a>.</p>
+			</div>
 		</div>
+	</header>

@@ -7,6 +7,7 @@ $params = (isset($_GET['page']) ? $_GET['page'] : 'Home');
 if (substr_count($params, '/') > 0)
 {
 	$params = explode('/', $params);
+
 	$controller = (file_exists("app/controller/$params[0].php") ? $params[0] : 'Errors');
 	$method = $params[1];
 	$model = $params[0];

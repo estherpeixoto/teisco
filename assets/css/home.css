@@ -1,0 +1,73 @@
+#feat {
+	background: url('../img/mobile_slide.jpg') no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 73px !important;
+	height: 92vh;
+	max-height: 752px;
+}
+
+#feat .overdrive-left {
+	background: url('../img/overdrive-left.svg') no-repeat;
+	position: absolute;
+	width: 16rem;
+	height: 7rem;
+	top: 0;
+	left: 0;
+}
+
+#feat .overdrive-right {
+	background: url('../img/overdrive-right.svg') no-repeat;
+	position: absolute;
+	width: 21rem;
+	height: 14rem;
+	bottom: -3px;
+	right: 0;
+}
+
+.hero {
+	height: 100vh;
+}
+
+.hero img {
+	bottom: 0;
+	position: absolute;
+	right: 0;
+	max-width: 428px;
+	max-height: 428px;
+}
+
+.hero .outer-space {
+	z-index: 1;
+}
+
+.hero .outer-space h1:first-of-type {
+	font-weight: bold;
+	font-size: 2.75rem;
+	letter-spacing: 0.18em;
+}
+
+.hero .outer-space h1:last-of-type {
+	font-weight: 900;
+	font-size: 2.75rem;
+	font-style: italic;
+	letter-spacing: 0.285em;
+}
+
+@media screen and (min-width: 768px) {
+	#feat {
+		background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+			url('../img/desktop_slide.jpg') no-repeat;
+		background-size: cover;
+	}
+
+	.hero {
+		max-height: 428px;
+	}
+
+	.hero img {
+		bottom: 0;
+		position: initial;
+		right: 0;
+	}
+}

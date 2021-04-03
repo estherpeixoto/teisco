@@ -1,47 +1,25 @@
 <?php echo $this->view('layout/header'); ?>
 
-<section class='section pb-0'>
-	<div class='container'>
+<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/about.css'>
 
-		<div class='row mb-5 justify-content-center' data-aos='fade'>
-			<div class='col-md-7 text-center heading-wrap'>
-				<h2 data-aos='fade-up'>About us</h2>
-
-				<p data-aos='fade-up' data-aos-delay='100'>
-					Foody is one of the country’s most celebrated restaurants; the creation of leading Brazilian restaurant group, Fink, and Executive Chef Peter Gilmore. The restaurant is an organic space reflective of Peter Gilmore’s nature inspired cuisine. The interplay of textures and colour brings life and a vibrance that embraces the restaurant’s place in the dress circle of Rio de Janeiro. An ode to the Brazilian landscape, from the vast ocean floor, to the cracked bark of a paperbark tree, every detail from the ground up has been thoughtfully considered.
-				</p>
-			</div>
-		</div>
-
-		<div class='row align-items-center'>
-			<div class='col-lg-4'>
-				<img src='<?php echo SITE_URL; ?>assets/img/dishes_1.jpg'
-					alt='Image' class='img-fluid about_img_1'
-					data-aos='fade' data-aos-delay='200'
-				/>
-			</div>
-
-			<div class='col-lg-4'>
-				<img src='<?php echo SITE_URL; ?>assets/img/about_1.jpg'
-					alt='Image' class='img-fluid about_img_1'
-					data-aos='fade' data-aos-delay='300'
-				/>
-
-				<img src='<?php echo SITE_URL; ?>assets/img/about_2.jpg'
-					alt='Image' class='img-fluid about_img_1'
-					data-aos='fade' data-aos-delay='400'
-				/>
-			</div>
-
-			<div class='col-lg-4'>
-				<img src='<?php echo SITE_URL; ?>assets/img/dishes_3.jpg'
-					alt='Image' class='img-fluid about_img_1'
-					data-aos='fade' data-aos-delay='500'
-				/>
-			</div>
-		</div>
-
+<section class='position-relative p-md-5 d-flex flex-column flex-md-row justify-content-between bg-overdrive text-fuzz'>
+	<div class='p-5'>
+		<h1 class='hero-title'>A universe of<br>fearless<br>music<br>explorers</h1>
 	</div>
+
+	<img src='<?php echo SITE_URL; ?>assets/img/hero_about.png' class='img-fluid' alt='Teisco pedal' />
+</section>
+
+<section class='about d-flex flex-column flex-md-row justify-content-center align-content-center p-5'>
+	<h1 class='col-12 col-md-3 col-xl-auto mb-4 mb-md-0 me-xl-5 text-fuzz'>JAPAN,<br>1948</h1>
+
+	<p class='col-12 col-md-4 col-xl-3 pe-md-3 pe-xl-5'>
+		Teisco guitars, also known as Teisco Del Ray guitars, were created in this time period in Japan. They had everything instruments of the time needed – electronic components, eye-catching body shapes, and unique design choices. It was a time when electric instruments were viewed as the bringer of the next generation of music, so an out-of-this-world design meant more appeal.
+	</p>
+
+	<p class='col-12 col-md-4 col-xl-3 ps-md-3 ps-xl-5'>
+		In 2018, the brand was relaunched – along with former guitar company Harmony – by Singaporean music company BandLab Technologies to produce effects units.
+	</p>
 </section>
 
 <?php echo $this->view('layout/footer'); ?>

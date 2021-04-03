@@ -1,0 +1,27 @@
+.hero-title {
+	font-weight: 900;
+	text-transform: uppercase;
+	line-height: 163.69%;
+}
+
+.hero-image {
+	height: 92vh;
+	max-height: 752px;
+}
+
+@media screen and (min-width: 768px) {
+	.about {
+		min-height: 80vh;
+		flex-wrap: wrap;
+	}
+
+	.about p:first-of-type {
+		border-right: 1px solid var(--bs-light);
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.about h1 {
+		font-size: 4rem;
+	}
+}
