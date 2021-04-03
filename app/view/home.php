@@ -30,7 +30,7 @@
 			<h1>OUTER<br>SPACE</h1>
 		</div>
 
-		<img src='<?php echo SITE_URL; ?>assets/img/hero_pedal.jpg' class='img-fluid' alt='Pedals from outer space' />
+		<img src='<?php echo SITE_URL; ?>assets/img/hero_pedal.png' class='img-fluid' alt='Pedals from outer space' />
 	</div>
 </section>
 
