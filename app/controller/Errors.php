@@ -14,6 +14,6 @@ class Errors extends Controller
 	 */
 	public function index()
 	{
-		$this->view('Errors');
+		$this->view('errors');
 	}
 }
