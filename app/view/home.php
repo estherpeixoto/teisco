@@ -1,6 +1,6 @@
-<?php echo $this->view('layout/header'); ?>
+<?php $this->loadView('layout/header'); ?>
 
-<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/home.css'>
+<link rel='stylesheet' href='<?= SITEURL; ?>assets/css/home.css'>
 
 <div id='feat' class='position-relative bg-overdrive text-light'>
 	<div class='overdrive-left d-md-none'></div>
@@ -11,7 +11,7 @@
 			<div class='row justify-content-center text-center'>
 				<div class='d-none d-md-block col-xl-8 col-lg-9 col-md-10'>
 					<h1 class='display-3'>
-						<img class='img-fluid' src='<?php echo SITE_URL; ?>assets/img/logo2.svg' alt='Teisco' />
+						<img class='img-fluid' src='<?= SITEURL; ?>assets/img/logo2.svg' alt='Teisco' />
 					</h1>
 
 					<div class='my-5'>
@@ -35,7 +35,7 @@
 	</div>
 
 	<div class='col-md-6 m-0'>
-		<img class='w-100 img-fluid' alt='hero' src='<?php echo SITE_URL; ?>assets/img/hero_pedals.jpg'>
+		<img class='w-100 img-fluid' alt='hero' src='<?= SITEURL; ?>assets/img/hero_pedals.jpg'>
 	</div>
 </section>
 
@@ -45,30 +45,30 @@
 	<div class='d-flex flex-column flex-md-row justify-content-center gy-3'>
 		<div class='col-12 col-md-3'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/interface1.png' class='card-img-top'
+				<img src='<?= SITEURL; ?>assets/img/products/interface1.png' class='card-img-top'
 					alt='Teisco Interface'
 				/>
 
 				<div class='card-body'>
 					<h6 class='card-title text-center text-uppercase'>Teisco Interface</h6>
-					<a href='<?php echo SITE_URL; ?>Home/products/2' class='stretched-link'></a>
+					<a href='<?= SITEURL; ?>Home/products/2' class='stretched-link'></a>
 				</div>
 			</div>
 		</div>
 
 		<div class='col-12 col-md-3'>
 			<div class='card border-0'>
-				<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png' class='card-img-top'
+				<img src='<?= SITEURL; ?>assets/img/products/overdrive1.png' class='card-img-top'
 					alt='Teisco Overdrive'
 				/>
 
 				<div class='card-body'>
 					<h6 class='card-title text-center text-uppercase'>Teisco Overdrive</h6>
-					<a href='<?php echo SITE_URL; ?>Home/products/1' class='stretched-link'></a>
+					<a href='<?= SITEURL; ?>Home/products/1' class='stretched-link'></a>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-<?php echo $this->view('layout/footer'); ?>
+<?php $this->loadView('layout/footer'); ?>

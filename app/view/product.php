@@ -1,4 +1,4 @@
-<?php echo $this->view('layout/header'); ?>
+<?php $this->loadView('layout/header'); ?>
 
 <section class='container bg-white py-5'>
 
@@ -7,7 +7,7 @@
 	<div class='row gy-3 justify-content-center'>
 
 		<div class='col-12 col-md-6'>
-			<img src='<?php echo SITE_URL; ?>assets/img/products/overdrive1.png' class='img-fluid'
+			<img src='<?= SITEURL; ?>assets/img/products/overdrive1.png' class='img-fluid'
 				alt='Teisco Overdrive'
 			/>
 		</div>
@@ -40,4 +40,4 @@
 
 </section>
 
-<?php echo $this->view('layout/footer'); ?>
+<?php $this->loadView('layout/footer'); ?>

@@ -1,40 +1,40 @@
 <?php
 
-use App\Lib\Controller;
+use App\Lib\ControllerMain;
 
-class Home extends Controller
+class Home extends ControllerMain
 {
 	public function index()
 	{
-		$this->view('home');
-	}
-
-	public function about()
-	{
-		$this->view('about');
+		$this->loadView('home');
 	}
 
 	public function products()
 	{
-		if ($this->data['id'] != 0)
+		if ($this->dados['id'] != 0)
 		{
-			$this->view('product', [
-				'id' => $this->data['id']
+			$this->loadView('product', [
+				'id' => $this->dados['id']
 			]);
 		}
 		else
 		{
-			$this->view('products');
+			$this->loadView('products');
 		}
 	}
 
-	public function signin()
+	public function about()
 	{
-		$this->view('signin');
+		$this->loadView('about');
 	}
 
 	public function contact()
 	{
-		$this->view('contact');
+		$this->loadView('contact');
+	}
+
+	public function signin()
+	{
+		$this->loadView('signin');
 	}
 }

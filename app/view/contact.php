@@ -1,4 +1,4 @@
-<?php echo $this->view('layout/header'); ?>
+<?php $this->loadView('layout/header'); ?>
 
 <section class='container bg-white py-5'>
 
@@ -42,4 +42,4 @@
 	</div>
 </section>
 
-<?php echo $this->view('layout/footer'); ?>
+<?php $this->loadView('layout/footer'); ?>

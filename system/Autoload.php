@@ -1,39 +1,24 @@
 <?php
 
-/**
- * Autoload
- */
-class Autoload
+class AutoLoad
 {
-	/**
-	 * lib
-	 *
-	 * @param  mixed $classname
-	 * @return void
-	 */
-	public function lib($classname)
+	public function lib($className)
 	{
-		// Remove espacos em branco no comeco da string
-		$namespace = '';
-		$classname = ltrim($classname, '\\');
+		$className  = ltrim($className, '\\');
+		$fileName   = '';
+		$nameSpace  = '';
 
-		// Busca a posicao do primeiro \ na string
-		if ($position = strpos($classname, '\\'))
+		if ($lastNsPos = strpos($className, '\\'))
 		{
-			// Armazena a primeira palavra da string como namespace
-			$namespace = substr($classname, 0, $position);
-			$namespace = str_replace('\\', DS, $namespace) . DS;
-
-			// Armazena da segunda palavra em diante como o classname
-			$classname = substr($classname, $position + 1);
+			$nameSpace  = substr($className, 0, $lastNsPos);
+			$className  = substr($className, $lastNsPos + 1);
+			$fileName   = str_replace('\\', DS, $nameSpace) . DS;
 		}
 
-		// Divide a string em duas partes 0 = sub pasta, 1 = arquivo
-		$classname = explode('\\', $classname);
+		$className = str_replace('\\', '/', $className);
 
-		// Concatena a pasta de aplicacao com a sub pasta e o arquivo.php
-		$filename = strtolower($namespace . $classname[0]) . DS . $classname[1] . '.php';
+		$fileName = 'app/' . str_replace("_", DS, $className) . '.php';
 
-		require $filename;
+		require $fileName;
 	}
 }

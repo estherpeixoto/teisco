@@ -1,6 +1,6 @@
-<?php echo $this->view('layout/header'); ?>
+<?php $this->loadView('layout/header'); ?>
 
-<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/signin.css'>
+<link rel='stylesheet' href='<?= SITEURL; ?>assets/css/signin.css'>
 
 <section class='signin bg-overdrive'>
 
@@ -63,4 +63,4 @@
 
 </section>
 
-<?php echo $this->view('layout/footer'); ?>
+<?php $this->loadView('layout/footer'); ?>

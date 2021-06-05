@@ -6,10 +6,10 @@ define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', __FILE__);
 
 require_once 'system/Autoload.php';
-$autoload = new Autoload();
+$AutoLoad = new AutoLoad();
 
-spl_autoload_register([$autoload, 'lib']);
+spl_autoload_register([$AutoLoad, 'lib']);
 
 require_once 'url.php';
 
-$myController->$method();
+$myController->$metodo();

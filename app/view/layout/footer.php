@@ -57,7 +57,7 @@
         					Copyright &copy; <script>
         						document.write(new Date().getFullYear());
         					</script>
-        					<a class='text-delay text-decoration-none' href='<?php echo SITE_URL; ?>'>Teisco</a>.
+        					<a class='text-delay text-decoration-none' href='<?= SITEURL; ?>'>Teisco</a>.
         					All rights reserved.
         				</p>
         			</div>
@@ -65,7 +65,7 @@
         	</div>
         </footer>
 
-        <script src='<?php echo SITE_URL; ?>assets/js/bootstrap.bundle.min.js'></script>
+        <script src='<?= SITE_URL; ?>assets/js/bootstrap.bundle.min.js'></script>
         </body>
 
         </html>

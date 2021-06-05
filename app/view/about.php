@@ -1,6 +1,6 @@
-<?php echo $this->view('layout/header'); ?>
+<?php $this->loadView('layout/header'); ?>
 
-<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/about.css'>
+<link rel='stylesheet' href='<?= SITEURL; ?>assets/css/about.css'>
 
 <section class='bg-overdrive'>
 	<div class='container-md d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center p-md-5'>
@@ -8,7 +8,7 @@
 			<h1 class='text-uppercase fw-bolder hero-title'>A universe of<br>fearless<br>music<br>explorers</h1>
 		</div>
 
-		<img src='<?php echo SITE_URL; ?>assets/img/hero_about.png'
+		<img src='<?= SITEURL; ?>assets/img/hero_about.png'
 			class='img-fluid hero-image pb-5 pb-md-0'
 			alt='Teisco pedal'
 		/>
@@ -27,4 +27,4 @@
 	</p>
 </section>
 
-<?php echo $this->view('layout/footer'); ?>
+<?php $this->loadView('layout/footer'); ?>

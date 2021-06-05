@@ -5,18 +5,18 @@
 	<title>Teisco - A Universe of Fearless Music Explorers</title>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-	<link rel="icon" type="image/svg+xml" href="<?php echo SITE_URL; ?>assets/img/favicon.svg">
-	<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/bootstrap.min.css'>
-	<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/font/fontawesome/css/all.min.css'>
-	<link rel='stylesheet' href='<?php echo SITE_URL; ?>assets/css/header.css'>
+	<link rel="icon" type="image/svg+xml" href="<?= SITEURL; ?>assets/img/favicon.svg">
+	<link rel='stylesheet' href='<?= SITEURL; ?>assets/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='<?= SITEURL; ?>assets/font/fontawesome/css/all.min.css'>
+	<link rel='stylesheet' href='<?= SITEURL; ?>assets/css/header.css'>
 </head>
 
 <body>
 	<header>
 		<nav class='navbar navbar-expand-md navbar-dark bg-fuzz'>
 			<div class='container'>
-				<a href='<?php echo SITE_URL; ?>' class='navbar-brand order-2 order-md-0'>
-					<img src='<?php echo SITE_URL; ?>/assets/img/logo.svg'
+				<a href='<?= SITEURL; ?>' class='navbar-brand order-2 order-md-0'>
+					<img src='<?= SITEURL; ?>/assets/img/logo.svg'
 						alt='Teisco - A Universe of Fearless Music Explorers'
 						width='auto'
 						height='20'
@@ -44,19 +44,19 @@
 				<div id='navbarSupportedContent' class='collapse navbar-collapse text-uppercase order-4 order-md-3'>
 					<ul class='navbar-nav mx-auto py-3 py-md-0 pl-lg-5 pl-0'>
 						<li class='nav-item py-3 py-md-0'>
-							<a class='navbar-item' href='<?php echo SITE_URL; ?>Home/products'>
+							<a class='navbar-item' href='<?= SITEURL; ?>Home/products'>
 								Products
 							</a>
 						</li>
 
 						<li class='nav-item py-3 py-md-0'>
-							<a class='navbar-item' href='<?php echo SITE_URL; ?>Home/about'>
+							<a class='navbar-item' href='<?= SITEURL; ?>Home/about'>
 								About
 							</a>
 						</li>
 
 						<li class='nav-item py-3 py-md-0'>
-							<a class='navbar-item text-decoration-underline' href='<?php echo SITE_URL; ?>Home/signin'>
+							<a class='navbar-item text-decoration-underline' href='<?= SITEURL; ?>Home/signin'>
 								Sign in
 							</a>
 						</li>
@@ -77,7 +77,7 @@
 
 			<div class="offcanvas-body">
 				<p>Your cart is currently empty.</p>
-				<p>Continue browsing <a href='<?php echo SITE_URL; ?>Home/products'>here</a>.</p>
+				<p>Continue browsing <a href='<?= SITEURL; ?>Home/products'>here</a>.</p>
 			</div>
 		</div>
 	</header>
