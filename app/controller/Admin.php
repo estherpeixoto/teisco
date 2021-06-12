@@ -1,5 +1,6 @@
 <?php
-
+use App\Lib\Session;
+use App\Lib\Redirect;
 use App\Lib\ControllerMain;
 
 class Admin extends ControllerMain
