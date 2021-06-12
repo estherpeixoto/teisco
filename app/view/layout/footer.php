@@ -65,7 +65,6 @@
         	</div>
         </footer>
 
-        <script src='<?= SITE_URL; ?>assets/js/bootstrap.bundle.min.js'></script>
-        </body>
-
-        </html>
+        <script src='<?= SITEURL; ?>assets/js/bootstrap.bundle.min.js'></script>
+	</body>
+</html>
