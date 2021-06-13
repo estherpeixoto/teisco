@@ -1,7 +1,5 @@
   <?php $this->loadView('layout/header'); ?>
 
-  <link rel='stylesheet' href='<?= SITEURL; ?>assets/css/restricted-area.css'>
-
   <div class='list-container'>
   	<?php $this->loadView('layout/navbar'); ?>
 
