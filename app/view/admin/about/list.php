@@ -1,4 +1,10 @@
-<?php $this->loadView('layout/header'); ?>
+<?php 
+
+use App\Lib\Formulario;
+
+$this->loadView('layout/header'); 
+
+?>
 
 <link rel='stylesheet' href='<?= SITEURL; ?>assets/css/restricted-area.css'>
 
@@ -6,6 +12,8 @@
 	<?php $this->loadView('layout/navbar'); ?>
 
 	<div class='container py-5'>
+		<?= Formulario::exibeMensagem() ?>
+
 		<div class='row mb-3'>
 			<h3 class='col-8'>About List</h3>
 
@@ -32,26 +40,34 @@
 						</thead>
 
 						<tbody>
-							<tr>
-								<td>dale</td>
-								<td>dele</td>
-								<td>dele</td>
-								<td>doly</td>
-								<td>dale</td>
-								<td class='d-flex justify-content-around'>
-									<a title='Visualizar' href='<?= SITEURL; ?>'>
-										<i class='fas fa-eye'></i>
-									</a>
-
-									<a title='Alterar' href='<?= SITEURL; ?>'>
-										<i class='fas fa-edit'></i>
-									</a>
-
-									<a title='Excluir' href='<?= SITEURL; ?>'>
-										<i class='fas fa-trash-alt'></i>
-									</a>
-								</td>
-							</tr>
+								<?php
+									if ( $dbDados ) {
+											foreach ($dbDados as $key => $value) {
+													?>
+									
+													<tr>
+															<td class="text-center"><?= $value->id ?></td>
+															<td class="text-center"><?= Formulario::setDescricao($value->status, ['A' => 'Ativo', 'I' => 'Inativo']) ?></td>
+															<td><?= $value->title ?></td>
+															<td><?= $value->subtitle ?></td>
+															<td><?= $value->text ?></td>
+															<td>
+																	<a href="<?= SITEURL ?>admin/about/form<?= $value->id ?>/view" title="View" class="btn-crud"><i class="fa fa-low-vision"></i></a>
+																	<a href="<?= SITEURL ?>admin/about/form<?= $value->id ?>/update" title="Update" class="btn-crud"><i class="fa fa-clipboard"></i></a>
+																	<a href="<?= SITEURL ?>admin/about/form<?= $value->id ?>/delete" title="Delete" class="btn-crud"><i class="fa fa-trash"></i></a>
+															</td>
+													</tr>
+													
+													<?php
+											}
+									} else {
+											?>
+											<tr>
+													<td colspan="7">No records found...</td>
+											</tr>
+											<?php
+									}
+								?>
 						</tbody>
 					</table>
 				</div>

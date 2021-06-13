@@ -25,7 +25,10 @@ class Home extends ControllerMain
 
 	public function about()
 	{
-		$this->loadView('about');
+		$aboutModel = $this->loadModel("About");
+		$dbDados = $aboutModel->getAbout();
+
+		$this->loadView('about', $dbDados);
 	}
 
 	public function contact()
