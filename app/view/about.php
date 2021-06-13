@@ -1,4 +1,5 @@
 <?php $this->loadView('layout/header'); ?>
+<?php $this->loadView('layout/navbar'); ?>
 
 <link rel='stylesheet' href='<?= SITEURL; ?>assets/css/about.css'>
 

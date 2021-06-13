@@ -1,45 +1,72 @@
 <?php
-use App\Lib\Session;
-use App\Lib\Redirect;
+
 use App\Lib\ControllerMain;
+use App\Lib\Redirect;
+use App\Lib\Session;
 
 class Admin extends ControllerMain
 {
+	public function index()
+	{
+		$this->loadView('layout/header');
+		$this->loadView('layout/navbar');
+		echo 'User Authenticated!';
+		$this->loadView('layout/footer');
+	}
+
 	public function signin()
 	{
 		$this->loadView('admin/signin');
 	}
 
-  public function authenticate(){
-    $post = $this->dados['post'];
+	public function authenticate()
+	{
+		$post = $this->dados['post'];
 
-        $user = $this->model->getLogin($post['email']);
+		$user = $this->model->getLogin($post['email']);
 
-        if (!$user) {
-            Redirect::route("admin/signin", [
-                "msgErros" => "Login ou senha inválidos !"
-            ]);
-        } else {
+		if (!$user)
+		{
+			Redirect::route('admin/signin', [
+				'msgError' => 'Email or password incorrect'
+			]);
+		}
+		else
+		{
+			if ($user->status == 'I')
+			{
+				Redirect::route('admin/signin', [
+					'msgError' => "Can't sign in, user inactive"
+				]);
+			}
+			else
+			{
+				if (!password_verify(trim($post['password']), $user->password))
+				{
+					Redirect::route('admin/signin', [
+						'msgError' => 'Email or password incorrect'
+					]);
+				}
+				else
+				{
+					Session::set('isLogged', true);
+					Session::set('id', $user->id);
+					Session::set('email', $user->email);
+					Session::set('type', $user->type);
 
-            if ($user->status == "I") {
-                Redirect::route("admin/signin", [
-                    "msgErros" => "Usuário inativo, favor contactar o administrador !"
-                ]);
-            } else {
-                if (!password_verify(trim($post['password']), $user->password)) {
-                    Redirect::route("admin/signin", [
-                        "msgErros" => "Login ou senha inválidos !"
-                    ]);
-                } else {
+					Redirect::route('admin');
+				}
+			}
+		}
+	}
 
-                    Session::set('isLogged'     , true);
-                    Session::set('loginId'      , $user->id);
-                    Session::set('loginEmail'   , $user->email);
-                    Session::set('loginType'   , $user->type);
+	public function signout()
+	{
+		Session::destroy('isLogged');
+		Session::destroy('id');
+		Session::destroy('email');
+		Session::destroy('type');
 
-                }
-            }
-
-        }
-  }
+		Redirect::route('admin/signin');
+	}
 }

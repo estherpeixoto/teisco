@@ -1,4 +1,5 @@
 <?php $this->loadView('layout/header'); ?>
+<?php $this->loadView('layout/navbar'); ?>
 
 <section class='container bg-white py-5'>
 
