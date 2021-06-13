@@ -8,10 +8,7 @@ class Admin extends ControllerMain
 {
 	public function index()
 	{
-		$this->loadView('layout/header');
-		$this->loadView('layout/navbar');
-		echo 'User Authenticated!';
-		$this->loadView('layout/footer');
+		$this->loadView('admin/index');
 	}
 
 	public function signin()
