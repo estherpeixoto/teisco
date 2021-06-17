@@ -14,12 +14,15 @@ class AboutModel extends ModelMain
 		return count($data) > 0 ? $data : false;
 	}
 
-	public function getAbout($id)
+	public function getAbout($id, $isHomepage = false)
 	{
-		$rs = $this->db->db_select("SELECT * FROM $this->table WHERE id = ?", [$id]);
-		$data = $this->db->db_busca_array($rs);
+		if ($isHomepage) {
+			$rs = $this->db->db_select("SELECT * FROM $this->table WHERE status = 'A' LIMIT 1");
+		} else {
+			$rs = $this->db->db_select("SELECT * FROM $this->table WHERE id = ?", [$id]);
+		}
 
-		return count($data) > 0 ? $data : false;
+		return $this->db->db_busca_array($rs);
 	}
 
 	function insert($data)
