@@ -53,18 +53,20 @@ $this->loadView('layout/header');
 
 										<td><?= $about->text ?></td>
 
-										<td class='d-flex justify-content-around'>
-											<a title='View' href='<?= SITEURL . "about/form/$about->id/view"; ?>'>
-												<i class='fas fa-eye text-fuzz'></i>
-											</a>
+										<td>
+											<div class='d-flex justify-content-around'>
+												<a title='View' href='<?= SITEURL . "about/form/$about->id/view"; ?>'>
+													<i class='fas fa-eye text-fuzz'></i>
+												</a>
 
-											<a title='Update' href='<?= SITEURL . "about/form/$about->id/update"; ?>'>
-												<i class='fas fa-edit text-fuzz'></i>
-											</a>
+												<a title='Update' href='<?= SITEURL . "about/form/$about->id/update"; ?>'>
+													<i class='fas fa-edit text-fuzz'></i>
+												</a>
 
-											<a title='Delete' href='<?= SITEURL . "about/form/$about->id/delete"; ?>'>
-												<i class='fas fa-trash-alt text-fuzz'></i>
-											</a>
+												<a title='Delete' href='<?= SITEURL . "about/form/$about->id/delete"; ?>'>
+													<i class='fas fa-trash-alt text-fuzz'></i>
+												</a>
+											</div>
 										</td>
 									</tr>
 
