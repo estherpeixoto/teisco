@@ -1,56 +1,71 @@
-  <?php $this->loadView('layout/header'); ?>
+<?php
 
-  <div class='list-container'>
-  	<?php $this->loadView('layout/navbar'); ?>
+use App\Lib\Formulario;
 
-  	<div class='container py-5'>
-  		<div class='row mb-3'>
-  			<div class='col'>
-  				<h3>About Manager<h3>
-  			</div>
+$this->loadView('layout/header');
 
-  			<div class='col-auto'>
-  				<a href='<?= SITEURL; ?>about/list' class='btn btn-outline-boost rounded-pill'>
-  					<i class='fas fa-border-all'></i>
-  				</a>
-  			</div>
-  		</div>
+?>
 
-  		<form action='' method='post' enctype='multipart/form-data'>
-  			<div class='row g-3'>
-  				<div class='col-sm-2'>
-  					<label for='id' class='control-label'>ID</label>
-  					<input type='text' class='form-control' id='id' name='id' readonly />
-  				</div>
+<div class='list-container'>
+	<?php $this->loadView('layout/navbar'); ?>
 
-  				<div class='col-sm-4'>
-  					<label for='status' class='control-label'>Status</label>
-  					<select class='form-select' id='status' name='status' required>
-  						<option>Selecione o Status</option>
-  						<option value='1'>Ativo</option>
-  						<option value='2'>Inativo</option>
-  					</select>
-  				</div>
+	<div class='container py-5'>
+		<div class='row mb-3'>
+			<div class='col'>
+				<h3>About - <?= Formulario::setFormSubTitulo($this->dados['acao']); ?><h3>
+			</div>
 
-  				<div class='col-sm-6'>
-  					<label for='title' class='control-label'>Title</label>
-  					<input type='text' class='form-control' id='title' name='title' maxlength='100' required />
-  				</div>
+			<div class='col-auto'>
+				<a href='<?= SITEURL; ?>about' class='btn btn-outline-secondary rounded-pill'>
+					<i class='fas fa-border-all'></i>
+				</a>
+			</div>
+		</div>
 
-  				<div class='col-sm-6'>
-  					<label for='subtitle' class='control-label'>Subtitle</label>
-  					<input type='text' class='form-control' id='subtitle' name='subtitle' maxlength='100' required />
-  				</div>
+		<form method='post' action='<?= SITEURL . "about/{$this->dados['acao']}"; ?>' class='row g-3' enctype='multipart/form-data'>
+			<input type='hidden' name='id' value='<?= Formulario::setValue('id', $dbDados); ?>' />
+			<input type='hidden' name='oldImg' value='<?= Formulario::setValue('img', $dbDados); ?>' />
 
-  				<div>
-  					<a href='<?= SITEURL; ?>about/list' class='btn btn-primary'>Voltar</a>
-  				</div>
+			<div class='col-sm-4'>
+				<label for='status' class='form-label'>Status</label>
+				<select class='form-select' id='status' name='status' required>
+					<option value='A' <?= Formulario::setValue('status', $dbDados) == 'A' ? 'selected' : ''; ?>>Active</option>
+					<option value='I' <?= Formulario::setValue('status', $dbDados) == 'I' ? 'selected' : ''; ?>>Inactive</option>
+				</select>
+			</div>
 
-  			</div>
+			<div class='col-sm-8'>
+				<label for='title' class='form-label'>Title</label>
+				<input type='text' class='form-control' id='title' name='title' maxlength='100' required value='<?= Formulario::setValue('title', $dbDados); ?>' />
+			</div>
 
-  		</form>
+			<div class='col-sm-6'>
+				<label for='subtitle' class='form-label'>Subtitle</label>
+				<input type='text' class='form-control' id='subtitle' name='subtitle' maxlength='100' required value='<?= Formulario::setValue('subtitle', $dbDados); ?>' />
+			</div>
 
-  	</div>
+			<div class='col'>
+				<label for='text' class='form-label'>Text</label>
+				<textarea class='form-control' id='text' name='text' required><?= Formulario::setValue('text', $dbDados); ?></textarea>
+			</div>
 
-  	<?php $this->loadView('layout/footer'); ?>
-  </div>
+			<div class='col-sm-6'>
+				<label for='img' class='form-label'>Image</label>
+				<input type='file' accept='image/png, image/jpg, image/jpeg, image/gif' class='form-control' id='img' name='img'
+					<?= $this->dados['acao'] == 'new' ? 'required' : ''; ?> />
+			</div>
+
+			<img class="img-fluid w-25" src='<?= SITEURL . 'assets/img/about/' . Formulario::setValue('img', $dbDados); ?>' alt="About image" />
+
+			<div class='d-flex justify-content-end'>
+				<a href='<?= SITEURL; ?>about' class='btn btn-outline-secondary rounded-pill'>Back</a>
+
+				<?php if ($this->dados['acao'] != 'view') : ?>
+					<button type='submit' class='btn btn-boost rounded-pill ms-2'>Save</button>
+				<?php endif; ?>
+			</div>
+		</form>
+	</div>
+
+	<?php $this->loadView('layout/footer'); ?>
+</div>

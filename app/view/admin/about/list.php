@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 use App\Lib\Formulario;
 
-$this->loadView('layout/header'); 
+$this->loadView('layout/header');
 
 ?>
 
@@ -10,20 +10,20 @@ $this->loadView('layout/header');
 	<?php $this->loadView('layout/navbar'); ?>
 
 	<div class='container py-5'>
-		<?= Formulario::exibeMensagem() ?>
-
 		<div class='row mb-3'>
 			<h3 class='col-8'>About List</h3>
 
 			<div class='col-4 d-flex justify-content-end'>
-				<a href='<?= SITEURL; ?>about/form' title='Novo' class='btn btn-primary'>
-					New <i class='ms-2 fa fa-file'></i>
+				<a href='<?= SITEURL; ?>about/form/0/new' title='Novo' class='btn btn-outline-boost rounded-pill'>
+					New <i class='ms-2 fas fa-plus'></i>
 				</a>
 			</div>
 		</div>
 
 		<div class='row'>
 			<div class='col-12'>
+				<?php Formulario::exibeMensagem() ?>
+
 				<div class='table-responsive'>
 					<table class='table table-sm table-striped table-hover table-bordered'>
 						<thead class='table-light'>
@@ -38,34 +38,42 @@ $this->loadView('layout/header');
 						</thead>
 
 						<tbody>
-								<?php
-									if ( $dbDados ) {
-											foreach ($dbDados as $key => $value) {
-													?>
-									
-													<tr>
-															<td class="text-center"><?= $value->id ?></td>
-															<td class="text-center"><?= Formulario::setDescricao($value->status, ['A' => 'Ativo', 'I' => 'Inativo']) ?></td>
-															<td><?= $value->title ?></td>
-															<td><?= $value->subtitle ?></td>
-															<td><?= $value->text ?></td>
-															<td>
-																	<a href="<?= SITEURL ?>admin/about/form<?= $value->id ?>/view" title="View" class="btn-crud"><i class="fa fa-low-vision"></i></a>
-																	<a href="<?= SITEURL ?>admin/about/form<?= $value->id ?>/update" title="Update" class="btn-crud"><i class="fa fa-clipboard"></i></a>
-																	<a href="<?= SITEURL ?>admin/about/form<?= $value->id ?>/delete" title="Delete" class="btn-crud"><i class="fa fa-trash"></i></a>
-															</td>
-													</tr>
-													
-													<?php
-											}
-									} else {
-											?>
-											<tr>
-													<td colspan="7">No records found...</td>
-											</tr>
-											<?php
-									}
-								?>
+							<?php if ($dbDados) : ?>
+								<?php foreach ($dbDados as $about) : ?>
+									<tr>
+										<td class="text-center"><?= $about->id ?></td>
+
+										<td class="text-center">
+											<?= Formulario::setDescricao($about->status, ['A' => 'Ativo', 'I' => 'Inativo']) ?>
+										</td>
+
+										<td><?= $about->title ?></td>
+
+										<td><?= $about->subtitle ?></td>
+
+										<td><?= $about->text ?></td>
+
+										<td class='d-flex justify-content-around'>
+											<a title='View' href='<?= SITEURL . "about/form/$about->id/view"; ?>'>
+												<i class='fas fa-eye text-fuzz'></i>
+											</a>
+
+											<a title='Update' href='<?= SITEURL . "about/form/$about->id/update"; ?>'>
+												<i class='fas fa-edit text-fuzz'></i>
+											</a>
+
+											<a title='Delete' href='<?= SITEURL . "about/form/$about->id/delete"; ?>'>
+												<i class='fas fa-trash-alt text-fuzz'></i>
+											</a>
+										</td>
+									</tr>
+
+								<?php endforeach; ?>
+							<?php else : ?>
+								<tr>
+									<td colspan="7">No records found...</td>
+								</tr>
+							<?php endif; ?>
 						</tbody>
 					</table>
 				</div>

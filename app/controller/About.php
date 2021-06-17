@@ -1,4 +1,5 @@
 <?php
+
 use App\Lib\ControllerMain;
 use App\Lib\Redirect;
 use App\Lib\Session;
@@ -6,209 +7,144 @@ use App\Lib\Utilitarios;
 
 class About extends ControllerMain
 {
+	private $uploadFolder = 'assets/img/about/';
+
 	public function __construct($dados)
-    {
-        parent::__construct($dados);
+	{
+		parent::__construct($dados);
+		$this->estaLogado();
+	}
 
-        // verifica se o usuário está logado, caso não esteja redireciona para a view de login
+	public function index()
+	{
+		$this->loadView('admin/about/list', $this->model->getAboutPages());
+	}
 
-        $this->estaLogado();
-    }
+	public function form()
+	{
+		$dbDados = [];
 
-    /*
-    *   Listagem de About
-    */
+		if ($this->dados['acao'] != 'new') {
+			$dbDados = $this->model->getAbout($this->dados['id']);
+		}
 
-    public function index()
-    {
-        $this->loadView('admin/about/list', $this->model->lista());
-    }
-		
-    /*
-    *
-    */
+		$this->loadView('admin/about/form', $dbDados);
+	}
 
-    public function form()
-    {
+	private function isValidUpload()
+	{
+		// lista de tipos de arquivos permitidos
+		$tiposPermitidos =  array('image/gif', 'image/jpeg', 'image/jpg', 'image/png');
 
-        $dbDados = [];
+		// tamanho máximo (em bytes)
+		$tamanhoPermitido = 1024 * 1024 * 100; //5mb
 
-        if ($this->dados['acao'] != 'new') {
-            // buscar a noticia pelo $id no banco de dados
-            $dbDados = $this->model->getAboutId($this->dados['id']);
-        }
-        $this->loadView('admin/about/form', $dbDados);
-    }
+		// o tipo do arquivo
+		$imgType = $_FILES['img']['type'];
 
-    /*
-    *   insere uma nova noticia
-    */
+		//o tamanho do arquivo
+		$imgSize = $_FILES['img']['size'];
 
-    public function new()
-    {
+		// verifica o tipo ou tamanho do arquivo enviado
+		if (array_search($imgType, $tiposPermitidos) === false) {
+			Session::set('msgError', 'Invalid file type (allowed types: jpg, jpeg, png, gif)');
+			return false;
+		}
 
-        //pasta para onde o arquivo será movido no webSite
-        $pasta = 'assets/img/';
-        //$pasta = 'assets/img/blog/main-blog/';
+		if ($imgSize > $tamanhoPermitido) {
+			Session::set('msgError', 'File size exceeds the maximum upload size (max: 5mb)');
+			return false;
+		}
 
-        //lista de tipos de arquivos permitidos
-        $tiposPermitidos =  array('image/gif', 'image/jpeg', 'image/jpg', 'image/png');
+		return true;
+	}
 
-        //tamanho máximo (em bytes)
-        $tamanhoPermitido = 1024 * 1024 * 100; //5mb
+	public function new()
+	{
+		if ($this->isValidUpload()) {
+			$imgName = Utilitarios::gerarNomeAleatorio($_FILES['img']['name']);
 
-        //nome original do arquivo no computador do usuario
-        $Imagem = Utilitarios::gerarNomeAleatorio($_FILES['imagemDestaque']['name']);
+			if (move_uploaded_file($_FILES['img']['tmp_name'], $this->uploadFolder . $imgName)) {
+				if ($this->model->insert([
+					$this->dados['post']['status'],
+					$this->dados['post']['title'],
+					$this->dados['post']['subtitle'],
+					$this->dados['post']['text'],
+					$imgName
+				])) {
+					Redirect::route('about', [
+						'msgSucesso' => 'About page registered'
+					]);
+				} else {
+					Redirect::route('about', [
+						'msgError' => 'Failed to register new about page'
+					]);
+				}
+			} else {
+				Redirect::route('about', [
+					'msgError' => 'Failed to upload image'
+				]);
+			}
+		} else {
+			Redirect::route('about');
+		}
+	}
 
-        //o tipo do arquivo
-        $ImagemType = $_FILES['imagemDestaque']['type'];
+	public function update()
+	{
+		$imgName =  $this->dados['post']['oldImg'];
 
-        //o tamanho do arquivo
-        $ImagemSize = $_FILES['imagemDestaque']['size'];
+		$upload = true;
 
-        // o nome temporario do arquivo
-        $ImagemTemp = $_FILES['imagemDestaque']['tmp_name'];
+		// Se foi enviado uma nova imagem
+		if (!empty($_FILES['img']['name']) && $this->dados['post']['oldImg'] != $_FILES['img']['name']) {
+			if ($this->isValidUpload()) {
+				$imgName = Utilitarios::gerarNomeAleatorio($_FILES['img']['name']);
 
-        //codigos de possiveis erros na imagem
-        $ImagemError = $_FILES['imagemDestaque']['error'];
+				$upload = move_uploaded_file($_FILES['img']['tmp_name'], $this->uploadFolder . $imgName);
 
-        $upload = false;
+				if ($upload) {
+					unlink($this->uploadFolder . $this->dados['post']['oldImg']);
+				} else {
+					Redirect::route('About', [
+						'msgError' => 'Failed to upload image'
+					]);
+				}
+			}
+		}
 
-        if ($ImagemError === 0) {
-            //veririca o tipo de arquivo enviado
-            if (array_search($ImagemType, $tiposPermitidos) === false) {
-                $_SESSION["msgError"] = "O tipo de arquivo enviado é inválido! (" . $Imagem . ")";
-            } else if ($ImagemSize > $tamanhoPermitido) { //veririca o tamanho doa rquivo enviado
-                $_SESSION["msgError"] = "O tamanho do arquivo enviado é inválido! (" . $Imagem . ")";
-            } else { // não houve error, move o arquivo
-                $upload = move_uploaded_file($ImagemTemp, $pasta . $Imagem);
+		if ($upload) {
+			if ($this->model->update([
+				$this->dados['post']['status'],
+				$this->dados['post']['title'],
+				$this->dados['post']['subtitle'],
+				$this->dados['post']['text'],
+				$imgName,
+				$this->dados['post']['id']
+			])) {
+				Redirect::route('About', [
+					'msgSucesso' => 'About page updated!'
+				]);
+			} else {
+				Redirect::route('About', [
+					'msgError' => 'Failed to update about page'
+				]);
+			}
+		}
+	}
 
-                if (!$upload) {
-                    $_SESSION["msgError"] = "Houve uma falha ao realizar o upload da imagem (" . $Imagem . ")";
-                }
-            }
-        }
+	public function delete()
+	{
+		if ($this->model->delete($this->dados['post']['id'])) {
+			unlink('assets/img/' . $this->dados['post']['oldImg']);
 
-        if ($upload) {
-
-            if ($this->model->insert([
-                $this->dados['post']['status'],
-                $this->dados['post']['title'],
-                $this->dados['post']['subtitle'],
-                $this->dados['post']['text'],
-                $Imagem
-            ])) {
-                Redirect::route("About", [
-                    "msgSucesso"    => "Notícia inserida com sucesso !"
-                ]);
-            } else {
-                Redirect::route("About", [
-                    "msgErros"    => "Falha na inserção dos dados da Notícia !"
-                ]);
-            }
-        }
-    }
-
-    /*
-    *   Altera uma noticia   
-    */
-
-    public function update()
-    {
-
-        $Imagem =  $this->dados['post']['excluirImagem'];
-        $upload = true;
-
-        if ( $this->dados['post']['excluirImagem'] != $_FILES['imagemDestaque']['name'] and $_FILES['imagemDestaque']['name'] != "") {
-
-            //pasta para onde o arquivo será movido no webSite
-            //$pasta = 'assets/img/blog/main-blog/';
-            $pasta = 'assets/img/';
-
-            //lista de tipos de arquivos permitidos
-            $tiposPermitidos =  array('image/gif', 'image/jpeg', 'image/jpg', 'image/png');
-
-            //tamanho máximo (em bytes)
-            $tamanhoPermitido = 1024 * 1024 * 100; //5mb
-
-            //nome original do arquivo no computador do usuario
-            $Imagem = $_FILES['imagemDestaque']['name'];
-
-            //o tipo do arquivo
-            $ImagemType = $_FILES['imagemDestaque']['type'];
-
-            //o tamanho do arquivo
-            $ImagemSize = $_FILES['imagemDestaque']['size'];
-
-            // o nome temporario do arquivo
-            $ImagemTemp = $_FILES['imagemDestaque']['tmp_name'];
-
-            //codigos de possiveis erros na imagem
-            $ImagemError = $_FILES['imagemDestaque']['error'];
-
-            if ($ImagemError === 0) {
-                $upload = false;
-                //veririca o tipo de arquivo enviado
-                if (array_search($ImagemType, $tiposPermitidos) === false) {
-                    Redirect::route("About", [
-                        "msgErros"    => "O tipo de arquivo enviado é inválido!"
-                    ]);
-                } else if ($ImagemSize > $tamanhoPermitido) { //veririca o tamanho doa rquivo enviado
-                    Redirect::route("About", [
-                        "msgErros"    => "O tamanho do arquivo enviado é inválido!"
-                    ]);
-                } else { // não houve error, move o arquivo
-
-                    $Imagem = Utilitarios::gerarNomeAleatorio($Imagem);
-                    $upload = move_uploaded_file($ImagemTemp, $pasta . $Imagem);
-
-                    if (!$upload) {
-                        Redirect::route("About", [
-                            "msgErros"    => "Houve uma falha ao realizar o uploud da imagem!"
-                        ]);
-                    } else {
-                        unlink('assets/img/' . $this->dados['post']['excluirImagem']);
-                    }
-                }
-            }
-        }
-
-        if ($upload) {
-
-            if ($this->model->update([
-								$this->dados['post']['status'],
-								$this->dados['post']['title'],
-								$this->dados['post']['subtitle'],
-								$this->dados['post']['text'],
-                $Imagem,
-                $this->dados['post']['id']
-            ])) {
-                Redirect::route("About", [
-                    "msgSucesso"    => "Notícia alterada com sucesso !"
-                ]);
-            } else {
-                Redirect::route("About", [
-                    "msgErros"    => "Falha na alteração dos dados da Notícia !"
-                ]);
-            }
-        }
-    }
-
-    /*
-    *   Exclui uma noticia no banco de dados
-    */
-
-    public function delete()
-    {
-        if ($this->model->delete($this->dados['post']['id'])) {
-            unlink("assets/img/" . $this->dados['post']['excluirImagem']);
-            Redirect::route("About", [
-                "msgSucesso"    => "Notícia excluída com sucesso !"
-            ]);
-        } else {
-            Redirect::route("About", [
-                "msgErros"    => "Falha na exclusão da Notícia !"
-            ]);
-        }
-    }
+			Redirect::route('About', [
+				'msgSucesso' => 'About page deleted!'
+			]);
+		} else {
+			Redirect::route('About', [
+				'msgError' => 'Failed to delete about page'
+			]);
+		}
+	}
 }
