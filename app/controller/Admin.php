@@ -64,6 +64,6 @@ class Admin extends ControllerMain
 		Session::destroy('email');
 		Session::destroy('type');
 
-		Redirect::route('admin/signin');
+		Redirect::route('/admin/signin');
 	}
 }
