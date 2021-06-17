@@ -39,11 +39,11 @@ use App\Lib\Session;
 							</a>
 
 							<ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
-								<li><a class='dropdown-item' href='<?= SITEURL; ?>home/list'>Home</a></li>
-								<li><a class='dropdown-item' href='<?= SITEURL; ?>products/list'>Products</a></li>
-								<li><a class='dropdown-item' href='<?= SITEURL; ?>about/list'>About</a></li>
-								<li><a class='dropdown-item' href='<?= SITEURL; ?>contact/list'>Contact</a></li>
-								<li><a class='dropdown-item' href='<?= SITEURL; ?>users/list'>Users</a></li>
+								<li><a class='dropdown-item' href='<?= SITEURL; ?>home'>Home</a></li>
+								<li><a class='dropdown-item' href='<?= SITEURL; ?>products'>Products</a></li>
+								<li><a class='dropdown-item' href='<?= SITEURL; ?>about'>About</a></li>
+								<li><a class='dropdown-item' href='<?= SITEURL; ?>contact'>Contact</a></li>
+								<li><a class='dropdown-item' href='<?= SITEURL; ?>users'>Users</a></li>
 								<li>
 									<hr class='dropdown-divider'>
 								</li>
