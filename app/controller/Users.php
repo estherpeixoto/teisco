@@ -5,7 +5,13 @@ use App\Lib\Redirect;
 
 class Users extends ControllerMain
 {
-	public function list()
+	public function __construct($dados)
+	{
+		parent::__construct($dados);
+		$this->estaLogado();
+	}
+
+	public function index()
 	{
 		$this->loadView('admin/users/list', $this->model->getUsers());
 	}
