@@ -136,7 +136,7 @@ class About extends ControllerMain
 	public function delete()
 	{
 		if ($this->model->delete($this->dados['post']['id'])) {
-			unlink('assets/img/' . $this->dados['post']['oldImg']);
+			unlink($this->uploadFolder . $this->dados['post']['oldImg']);
 
 			Redirect::route('About', [
 				'msgSucesso' => 'About page deleted!'
