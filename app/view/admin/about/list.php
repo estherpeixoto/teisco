@@ -24,8 +24,8 @@ $this->loadView('layout/header');
 			<div class='col-12'>
 				<?php Formulario::exibeMensagem() ?>
 
-				<div class='table-responsive'>
-					<table class='table table-sm table-striped table-hover table-bordered'>
+				<div>
+					<table id='list' class='table table-sm table-striped table-hover table-bordered'>
 						<thead class='table-light'>
 							<tr>
 								<th>ID</th>
@@ -85,3 +85,9 @@ $this->loadView('layout/header');
 
 	<?php $this->loadView('layout/footer'); ?>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('#list').DataTable();
+} );
+</script>

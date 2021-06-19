@@ -69,3 +69,7 @@ $this->loadView('layout/header');
 
 	<?php $this->loadView('layout/footer'); ?>
 </div>
+
+<script>
+		CKEDITOR.replace( 'text' );
+</script>

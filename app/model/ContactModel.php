@@ -1,0 +1,48 @@
+<?php
+
+use App\Lib\ModelMain;
+
+class ContactModel extends ModelMain
+{
+	public $table = 'contact';
+
+	public function getContactPages()
+	{
+		$rs = $this->db->db_select("SELECT * FROM $this->table ORDER BY subject, message");
+		$data = $this->db->db_busca_dados_all($rs);
+
+		return count($data) > 0 ? $data : false;
+	}
+
+	public function getContact($id, $isHomepage = false)
+	{
+		if ($isHomepage) {
+			$rs = $this->db->db_select("SELECT * FROM $this->table WHERE status = 'A' LIMIT 1");
+		} else {
+			$rs = $this->db->db_select("SELECT * FROM $this->table WHERE id = ?", [$id]);
+		}
+
+		return $this->db->db_busca_array($rs);
+	}
+
+	function insert($data)
+	{
+		$rs = $this->db->db_insert(
+			"INSERT INTO $this->table (name, email, phone, subject, message)
+            VALUES (?, ?, ?, ?, ?)",
+			$data
+		);
+
+		return $rs > 0 ? true : false;
+	}
+
+	function delete($id)
+	{
+		$rs = $this->db->db_delete(
+			"DELETE FROM $this->table WHERE id = ?",
+			[$id]
+		);
+
+		return $rs > 0 ? true : false;
+	}
+}

@@ -1,31 +1,43 @@
-<?php $this->loadView('layout/header'); ?>
+<?php
+
+use App\Lib\Formulario;
+
+$this->loadView('layout/header');
+
+?>
 <?php $this->loadView('layout/navbar'); ?>
 
 <section class='container bg-white py-5'>
 
 	<h2 class='text-center text-uppercase'>Contact</h2>
 
-	<div class='row justify-content-center mt-5'>
+	<?php Formulario::exibeMensagem() ?>
+	<form method='post' action='<?= SITEURL . "contact/new"; ?>' class='row justify-content-center mt-5'>
 		<div class='col-10 col-md-6'>
 			<div class='card'>
 				<div class='card-body'>
 					<div class="form-floating mb-3">
-						<input type="text" class="form-control" id="floatingName" placeholder="E.g. John Doe">
+						<input name='name' type="text" class="form-control" id="floatingName" placeholder="E.g. John Doe">
 						<label for="floatingName">Name</label>
 					</div>
 
 					<div class="form-floating mb-3">
-						<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+						<input name='email' type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
 						<label for="floatingInput">Email address</label>
 					</div>
-
+					
 					<div class="form-floating mb-3">
-						<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-						<label for="floatingPassword">Password</label>
+						<input name='phone' type="phone" class="form-control" id="floatingInput" placeholder="name@example.com">
+						<label for="floatingInput">Phone</label>
 					</div>
 
 					<div class="form-floating mb-3">
-						<textarea class="form-control" style="height: 150px" placeholder="Leave a comment here"
+						<input name='subject' type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+						<label for="floatingInput">Subject</label>
+					</div>
+
+					<div class="form-floating mb-3">
+						<textarea name='message' class="form-control" style="height: 150px" placeholder="Leave a comment here"
 							id="floatingTextarea"
 						></textarea>
 						<label for="floatingTextarea">Message</label>
@@ -40,7 +52,7 @@
 			</div>
 
 		</div>
-	</div>
+	</form>
 </section>
 
 <?php $this->loadView('layout/footer'); ?>

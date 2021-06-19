@@ -32,6 +32,12 @@ use App\Lib\Session;
 						</a>
 					</li>
 
+					<li class='nav-item py-3 py-md-0'>
+						<a class='navbar-item' href='<?= SITEURL; ?>Home/contact'>
+							Contact
+						</a>
+					</li>
+
 					<?php if (Session::get('isLogged')) : ?>
 						<li class='nav-item py-3 py-md-0 dropdown'>
 							<a class='navbar-item dropdown-toggle' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -39,7 +45,7 @@ use App\Lib\Session;
 							</a>
 
 							<ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
-								<li><a class='dropdown-item' href='<?= SITEURL; ?>home'>Home</a></li>
+								<li><a class='dropdown-item' href='<?= SITEURL; ?>main'>Home</a></li>
 								<li><a class='dropdown-item' href='<?= SITEURL; ?>products'>Products</a></li>
 								<li><a class='dropdown-item' href='<?= SITEURL; ?>about'>About</a></li>
 								<li><a class='dropdown-item' href='<?= SITEURL; ?>contact'>Contact</a></li>
