@@ -32,9 +32,9 @@ class ProductsModel extends ModelMain
 		if ($rs > 0) {
 			foreach ($names as $fileName) {
 				$this->db->db_insert(
-					"INSERT INTO {$this->table}image (filename, alt)
-					VALUES (?, ?)",
-					[$fileName, $data[0]]
+					"INSERT INTO {$this->table}image (idProduct, filename, alt)
+					VALUES (?, ?, ?)",
+					[$rs, $fileName, $data[0]]
 				);
 			}
 
