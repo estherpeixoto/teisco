@@ -119,32 +119,50 @@ class Main extends ControllerMain
 
 		$upload = true;
 
-		// Se foi enviado uma nova imagem
-		if (
-			(!empty($_FILES['logoImg']['name']) && $logoImg != $_FILES['logoImg']['name']) &&
-			(!empty($_FILES['bgImg']['name']) && $bgImg != $_FILES['bgImg']['name']) &&
-			(!empty($_FILES['heroImg']['name']) && $heroImg != $_FILES['heroImg']['name'])
-		) {
-			if ($this->isValidUpload()) {
+		// Se foi enviado uma nova logo
+		if(!empty($_FILES['logoImg']['name']) && $logoImg != $_FILES['logoImg']['name']){
 				$logoImg = Utilitarios::gerarNomeAleatorio($_FILES['logoImg']['name']);
-				$bgImg = Utilitarios::gerarNomeAleatorio($_FILES['bgImg']['name']);
-				$heroImg = Utilitarios::gerarNomeAleatorio($_FILES['heroImg']['name']);
-
-				$upload = move_uploaded_file($_FILES['logoImg']['tmp_name'], $this->uploadFolder . $logoImg) &&
-					move_uploaded_file($_FILES['bgImg']['tmp_name'], $this->uploadFolder . $bgImg) &&
-					move_uploaded_file($_FILES['heroImg']['tmp_name'], $this->uploadFolder . $heroImg);
+				$upload = move_uploaded_file($_FILES['logoImg']['tmp_name'], $this->uploadFolder . $logoImg);
 
 				if ($upload) {
 					unlink($this->uploadFolder . $this->dados['post']['old_logoImg']);
-					unlink($this->uploadFolder . $this->dados['post']['old_bgImg']);
-					unlink($this->uploadFolder . $this->dados['post']['old_heroImg']);
 				} else {
-					Redirect::route('About', [
+					Redirect::route('main', [
 						'msgError' => 'Failed to upload images'
 					]);
 				}
-			}
 		}
+		
+		// Se foi enviado um novo background
+		if(!empty($_FILES['bgImg']['name']) && $bgImg != $_FILES['bgImg']['name']){
+
+				$bgImg = Utilitarios::gerarNomeAleatorio($_FILES['bgImg']['name']);
+				$upload = move_uploaded_file($_FILES['bgImg']['tmp_name'], $this->uploadFolder . $bgImg);
+
+				if ($upload) {
+					unlink($this->uploadFolder . $this->dados['post']['old_bgImg']);
+				} else {
+					Redirect::route('main', [
+						'msgError' => 'Failed to upload images'
+					]);
+				} 
+		}
+
+		
+		// Se foi enviado uma nova herro image
+		if(!empty($_FILES['heroImg']['name']) && $heroImg != $_FILES['heroImg']['name']){
+				$heroImg = Utilitarios::gerarNomeAleatorio($_FILES['heroImg']['name']);
+				$upload = move_uploaded_file($_FILES['heroImg']['tmp_name'], $this->uploadFolder . $heroImg);
+
+				if ($upload) {
+					unlink($this->uploadFolder . $this->dados['post']['old_heroImg']);
+				} else {
+					Redirect::route('main', [
+						'msgError' => 'Failed to upload images'
+					]);
+				}
+		}
+	
 
 		if ($upload) {
 			if ($this->model->update([
@@ -165,6 +183,8 @@ class Main extends ControllerMain
 				]);
 			}
 		}
+
+
 	}
 
 	public function delete()
