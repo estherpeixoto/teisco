@@ -25,9 +25,7 @@ class MainModel extends ModelMain
 	public function getActiveHome()
 	{
 		$rsc = $this->db->db_select("SELECT * FROM $this->table WHERE status = 'A' LIMIT 1");
-		$data = $this->db->db_busca_array($rsc);
-
-		return count($data) > 0 ? $data : false;
+		return $this->db->db_busca_array($rsc);
 	}
 
 	function insert($data)

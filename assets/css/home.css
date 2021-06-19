@@ -41,4 +41,8 @@
 		background-position: center;
 		background-size: cover;
 	}
+
+	.logo {
+		max-height: 56vh;
+	}
 }

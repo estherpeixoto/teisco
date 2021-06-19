@@ -6,7 +6,10 @@ class Home extends ControllerMain
 {
 	public function index()
 	{
-		$this->loadView('home');
+		$mainModel = $this->loadModel('Main');
+		$dbDados = $mainModel->getActiveHome();
+
+		$this->loadView('home', $dbDados);
 	}
 
 	public function products()
