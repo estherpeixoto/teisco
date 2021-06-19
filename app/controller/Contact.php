@@ -52,11 +52,11 @@ class Contact extends ControllerMain
 	{
 		if ($this->model->delete($this->dados['post']['id'])) {
 			Redirect::route('Contact', [
-				'msgSucesso' => 'Contact page deleted!'
+				'msgSucesso' => 'Contact message deleted!'
 			]);
 		} else {
 			Redirect::route('Contact', [
-				'msgError' => 'Failed to delete about page'
+				'msgError' => 'Failed to delete message'
 			]);
 		}
 	}
