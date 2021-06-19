@@ -8,7 +8,7 @@ class ProductsModel extends ModelMain
 
 	public function getProducts()
 	{
-		$rsc = $this->db->db_select("SELECT * FROM $this->table");
+		$rsc = $this->db->db_select("SELECT p.*, i.filename, i.alt FROM $this->table as p INNER JOIN productimage as i ON p.id = i.idproduct");
 		$users = $this->db->db_busca_dados_all($rsc);
 
 		return count($users) > 0 ? $users : false;
@@ -16,7 +16,7 @@ class ProductsModel extends ModelMain
 
 	public function getProduct($id)
 	{
-		$rsc = $this->db->db_select("SELECT * FROM $this->table WHERE id = ?", [$id]);
+		$rsc = $this->db->db_select("SELECT p.*, i.filename, i.alt FROM $this->table as p INNER JOIN productimage as i ON p.id = i.idproduct WHERE id = ?", [$id]);
 		$user = $this->db->db_busca_array($rsc);
 
 		return count($user) > 0 ? $user : false;
