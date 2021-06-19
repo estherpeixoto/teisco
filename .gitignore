@@ -1,0 +1,8 @@
+/assets/img/home/*
+!/assets/img/home/.gitkeep
+
+/assets/img/about/*
+!/assets/img/about/.gitkeep
+
+/assets/img/products/*
+!/assets/img/products/.gitkeep
