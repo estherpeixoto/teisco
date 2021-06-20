@@ -20,7 +20,7 @@ class ProductsModel extends ModelMain
 		return count($products) > 0 ? $products : false;
 	}
 
-	public function getProduct($id)
+	public function getProduct($id, $isForm = false)
 	{
 		$rsc = $this->db->db_select("SELECT * FROM $this->table WHERE id = ?", [$id]);
 		$product = $this->db->db_busca_array($rsc);
@@ -28,7 +28,7 @@ class ProductsModel extends ModelMain
 		$rsc = $this->db->db_select("SELECT filename, alt FROM {$this->table}image WHERE idProduct = ?", [$id]);
 		$image = $this->db->db_busca_array_all($rsc);
 
-		return count($product) > 0 ? ['product' => $product, 'img' => $image] : false;
+		return count($product) > 0 ? ($isForm ? $product : ['product' => $product, 'img' => $image]) : false;
 	}
 
 	function insert($data, $names)

@@ -25,7 +25,7 @@ class Products extends ControllerMain
 		$data = [];
 
 		if ($this->dados['acao'] != 'new') {
-			$data = $this->model->getProduct($this->dados['id']);
+			$data = $this->model->getProduct($this->dados['id'], true);
 		}
 
 		$this->loadView('admin/products/form', $data);

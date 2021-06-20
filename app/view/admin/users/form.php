@@ -16,7 +16,7 @@ $this->loadView('layout/header');
 			</div>
 
 			<div class='col-auto'>
-				<a href='<?= SITEURL; ?>users/list' class='btn btn-outline-secondary rounded-pill'>
+				<a href='<?= SITEURL; ?>users' class='btn btn-outline-secondary rounded-pill'>
 					<i class='fas fa-border-all'></i>
 				</a>
 			</div>
@@ -88,7 +88,7 @@ $this->loadView('layout/header');
 			</div>
 
 			<div class='d-flex justify-content-end'>
-				<a href='<?= SITEURL; ?>users/list' class='btn btn-outline-secondary rounded-pill'>Back</a>
+				<a href='<?= SITEURL; ?>users' class='btn btn-outline-secondary rounded-pill'>Back</a>
 
 				<?php if ($this->dados['acao'] != 'view') : ?>
 					<button type='submit' class='btn btn-boost rounded-pill ms-2'>Save</button>

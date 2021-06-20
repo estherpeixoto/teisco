@@ -35,11 +35,11 @@ class Users extends ControllerMain
 			$this->dados['post']['type'],
 			$this->dados['post']['status'],
 		])) {
-			Redirect::route('users/list', [
+			Redirect::route('users', [
 				'msgSucesso' => 'User registered!'
 			]);
 		} else {
-			Redirect::route('users/list', [
+			Redirect::route('users', [
 				'msgErros' => 'Failed to register new user.'
 			]);
 		}
@@ -54,11 +54,11 @@ class Users extends ControllerMain
 			$this->dados['post']['status'],
 			$this->dados['post']['id']
 		])) {
-			Redirect::route('users/list', [
+			Redirect::route('users', [
 				'msgSucesso' => 'User updated!'
 			]);
 		} else {
-			Redirect::route('users/list', [
+			Redirect::route('users', [
 				'msgErros' => 'Failed to update user.'
 			]);
 		}
@@ -67,11 +67,11 @@ class Users extends ControllerMain
 	public function delete()
 	{
 		if ($this->model->delete($this->dados['post']['id'])) {
-			Redirect::route('users/list', [
+			Redirect::route('users', [
 				'msgSucesso' => 'User deleted!'
 			]);
 		} else {
-			Redirect::route('users/list', [
+			Redirect::route('users', [
 				'msgErros' => 'Failed to delete user.'
 			]);
 		}

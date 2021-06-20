@@ -34,8 +34,6 @@ $this->loadView('layout/navbar');
 							<strong>Sign in</strong>
 						</button>
 					</form>
-
-					<a href='#' class='text-fuzz'>Forgot your password?</a>
 				</div>
 			</div>
 		</div>

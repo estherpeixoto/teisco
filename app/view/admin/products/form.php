@@ -26,7 +26,7 @@ $this->loadView('layout/header');
 
 			<input type='hidden' name='id' value='<?= Formulario::setValue('id', $dbDados); ?>' />
 
-			<div class='col-sm-2'>
+			<div class='col-md-2'>
 				<label for='status' class='form-label'>Status</label>
 				<select class='form-select' id='status' name='status' required>
 					<option value='A' <?= Formulario::setValue('status', $dbDados) == 'A' ? 'selected' : ''; ?>>Active</option>
@@ -39,7 +39,7 @@ $this->loadView('layout/header');
 				<input type='text' class='form-control' id='price' name='price' maxlength='100' required value='<?= @number_format(Formulario::setValue('price', $dbDados), 2, ',', '.'); ?>' />
 			</div>
 
-			<div class='col-sm-8'>
+			<div class='col-md-8'>
 				<label for='title' class='form-label'>Title</label>
 				<input type='text' class='form-control' id='title' name='title' maxlength='100' required value='<?= Formulario::setValue('title', $dbDados); ?>' />
 			</div>
@@ -49,7 +49,7 @@ $this->loadView('layout/header');
 				<textarea class='form-control' id='description' name='description' required><?= Formulario::setValue('description', $dbDados); ?></textarea>
 			</div>
 
-			<div class='col-sm-6'>
+			<div class='col-md-6'>
 				<label for='img' class='form-label'>Image</label>
 				<input type='file' accept='image/png, image/jpg, image/jpeg, image/gif' class='form-control' id='img' name='img[]'
 					<?= $this->dados['acao'] == 'new' ? 'required' : ''; ?> multiple />
