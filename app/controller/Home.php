@@ -15,11 +15,10 @@ class Home extends ControllerMain
 	public function products()
 	{
 		$productModel = $this->loadModel('Products');
-		$dbDados = $productModel->getProducts(null, true);
+		$dbDados = $productModel->getProducts();
 
 		if ($this->dados['id'] != 0)
 		{
-
 			$dbDados = $productModel->getProduct($this->dados['id']);
 			$this->loadView('product', 	$dbDados);
 		}

@@ -22,10 +22,9 @@ $this->loadView('layout/header');
 			</div>
 		</div>
 
-		<form method='post' action='<?= SITEURL . "products/{$this->dados['acao']}"; ?>' class='row g-3' enctype='multipart/form-data'>
+		<form method='POST' action='<?= SITEURL . "products/{$this->dados['acao']}"; ?>' class='row g-3' enctype='multipart/form-data'>
 
 			<input type='hidden' name='id' value='<?= Formulario::setValue('id', $dbDados); ?>' />
-			<input type='hidden' name='oldImg' value='<?= Formulario::setValue('img', $dbDados); ?>' />
 
 			<div class='col-sm-2'>
 				<label for='status' class='form-label'>Status</label>
@@ -37,7 +36,7 @@ $this->loadView('layout/header');
 
 			<div class='col-md-2'>
 				<label for='price' class='form-label'>Price</label>
-				<input type='text' class='form-control' id='price' name='price' maxlength='100' required value='<?= Formulario::setValue('price', $dbDados); ?>' />
+				<input type='text' class='form-control' id='price' name='price' maxlength='100' required value='<?= @number_format(Formulario::setValue('price', $dbDados), 2, ',', '.'); ?>' />
 			</div>
 
 			<div class='col-sm-8'>
@@ -63,6 +62,7 @@ $this->loadView('layout/header');
 					<button type='submit' class='btn btn-boost rounded-pill ms-2'>Save</button>
 				<?php endif; ?>
 			</div>
+
 		</form>
 	</div>
 

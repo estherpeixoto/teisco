@@ -33,16 +33,23 @@ class Products extends ControllerMain
 
 	private function getFiles()
 	{
-		$files = $_FILES['img'];
 		$arrFiles = [];
 
-		for ($x = 0; $x < count($files['name']); $x++) {
-			$arrFiles[] = [
-				'name' => $files['name'][$x],
-				'tmp_name' => $files['tmp_name'][$x],
-				'type' => $files['type'][$x],
-				'size' => $files['size'][$x],
-			];
+		if (isset($_FILES['img'])) {
+			$files = $_FILES['img'];
+
+			for ($x = 0; $x < count($files['name']); $x++) {
+				if ($files['size'][$x] > 0) {
+					$arrFiles[] = [
+						'name' => $files['name'][$x],
+						'tmp_name' => $files['tmp_name'][$x],
+						'type' => $files['type'][$x],
+						'size' => $files['size'][$x],
+					];
+				} else {
+					return [];
+				}
+			}
 		}
 
 		return $arrFiles;
@@ -131,32 +138,56 @@ class Products extends ControllerMain
 
 	public function update()
 	{
-		if ($this->model->update([
-			$this->dados['post']['name'],
-			$this->dados['post']['email'],
-			$this->dados['post']['type'],
-			$this->dados['post']['status'],
-			$this->dados['post']['id']
-		])) {
-			Redirect::route('users/list', [
-				'msgSucesso' => 'User updated!'
-			]);
-		} else {
-			Redirect::route('users/list', [
-				'msgErros' => 'Failed to update user.'
-			]);
+		$flag = true;
+		$names = [];
+
+		$files = $this->getFiles();
+
+		if (count($files) > 0) {
+			if ($this->isValidUpload($files)) {
+				// Armazena a imagem, caso dê erro quebra o loop
+				foreach ($files as $k => $file) {
+					$names[$k] = Utilitarios::gerarNomeAleatorio($file['name']);
+
+					if (!move_uploaded_file($file['tmp_name'], $this->uploadFolder . $names[$k])) {
+						$flag = false;
+						break;
+					}
+				}
+			}
 		}
+
+		if ($flag) {
+			if ($this->model->update([
+				$this->dados['post']['title'],
+				$this->dados['post']['description'],
+				str_replace(',', '.', str_replace('.', '', $this->dados['post']['price'])),
+				$this->dados['post']['id']
+			], $names)) {
+				Redirect::route('products', [
+					'msgSucesso' => 'Product updated!'
+				]);
+
+				exit;
+			} else {
+				$this->unlinkImages($files, $names);
+			}
+		}
+
+		Redirect::route('products', [
+			'msgError' => 'Failed to update new product.'
+		]);
 	}
 
 	public function delete()
 	{
 		if ($this->model->delete($this->dados['post']['id'])) {
-			Redirect::route('users/list', [
-				'msgSucesso' => 'User deleted!'
+			Redirect::route('products', [
+				'msgSucesso' => 'Product deleted!'
 			]);
 		} else {
-			Redirect::route('users/list', [
-				'msgErros' => 'Failed to delete user.'
+			Redirect::route('products', [
+				'msgErros' => 'Failed to delete product.'
 			]);
 		}
 	}

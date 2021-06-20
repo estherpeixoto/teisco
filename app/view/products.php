@@ -13,14 +13,14 @@ $this->loadView('layout/header');
 
 	<div class='row gy-3 justify-content-center'>
 
-	<?php 
+	<?php
 
 	if ($dbDados) : ?>
 	<?php foreach ($dbDados as $product) : ?>
 		<div class='col-6 col-md-4'>
 			<div class='card border-0'>
 				<img src='<?= SITEURL; ?>assets/img/products/<?= $product->filename ?>' class='card-img-top'
-					alt='Teisco Boost'
+					alt='<?= $product->alt ?>'
 				/>
 
 				<div class='card-body'>
@@ -29,12 +29,12 @@ $this->loadView('layout/header');
 				</div>
 			</div>
 		</div>
-	<?php 
-				endforeach; 
-			endif; 
+	<?php
+				endforeach;
+			endif;
 	?>
 	</div>
-<!-- 
+<!--
 	<hr class='my-5 text-light'>
 
 	<h2 class='text-center text-uppercase mb-3'>Our interfaces</h2>
