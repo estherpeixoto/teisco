@@ -7,5 +7,5 @@ if (!defined('DB_DBTYPE'))
 	define('DB_PORT', '3306'); // Porta
 	define('DB_USER', 'root'); // Usuário
 	define('DB_PASSWORD', ''); // Senha
-	define('DB_BDADOS', 'teisco'); // Nome do banco
+	define('DB_BDADOS', 'fasm2021quintoperiodo'); // Nome do banco
 }
